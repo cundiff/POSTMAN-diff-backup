@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "adcf2136-f666-43fc-b99e-df28b2ce9007",
+		"name": "IP API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "My IP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e3c19252-a6a0-4717-bb9a-7ff5be39046d",
+						"exec": [
+							"pm.collectionVariables.set(\"my_ip\", pm.response.json().ip);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "aa2142e7-96ba-4c22-9e8b-5bd15d4a5baf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://ipapi.co/json/"
+			},
+			"response": []
+		},
+		{
+			"name": "IP details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1663380-4554-4974-b5f1-cd15f2c533e3",
+						"exec": [
+							"pm.test(\"Region is USA\", function () {",
+							"    var country = pm.response.json().country;",
+							"    pm.expect(country).to.eql(\"US\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "02b7c558-c93b-4c16-89d9-dafe3929b4e7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://ipapi.co/{{my_ip}}/json"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "abfd9b2e-f65e-417f-b18a-8bbe321a683e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a8747d0b-04fa-4a1b-a626-6cdc9623b934",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "my_ip",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
