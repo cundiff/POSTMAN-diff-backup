@@ -57,18 +57,6 @@
 				"url": "https://ipapi.co/{{my_ip}}/json"
 			},
 			"response": []
-		},
-		{
-			"name": "Hello, github",
-			"id": "ecab53a0-5b4c-4780-897d-f4764bfbc5be",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	],
 	"event": [
